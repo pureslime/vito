@@ -2,7 +2,6 @@
 set -e
 
 # Configuración
-REPO="pureslime/vito" # Cambia esto por tu usuario/repo real
 VITO_HOME="$HOME/.vito"
 BIN_DIR="$VITO_HOME/bin"
 
@@ -16,7 +15,7 @@ ARCH=$(uname -m)
 
 # Construir URL del asset
 # Ejemplo: https://github.com/pureslime/vito/releases/latest/download/vito-linux-amd64
-URL="https://github.com/$REPO/releases/latest/download/vito"
+URL="https://github.com/pureslime/VITO/releases/download/latest/vito"
 
 # Crear carpetas
 mkdir -p "$BIN_DIR" "$VITO_HOME/pills" "$VITO_HOME/config"

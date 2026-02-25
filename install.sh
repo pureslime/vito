@@ -1,31 +1,34 @@
 #!/bin/sh
 set -e
 
-# Terminal colors
-GREEN='\033[0;32m'
-BOLD='\033[1m'
-NC='\033[0m'
+# Configuración
+REPO="pureslime/vito" # Cambia esto por tu usuario/repo real
+VITO_HOME="$HOME/.vito"
+BIN_DIR="$VITO_HOME/bin"
 
-echo "${BOLD}📦 Installing VITO...${NC}"
+echo "🚀 Installing VITO from GitHub..."
 
-# Detect Architecture
+# Detección de OS y ARCH
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 ARCH=$(uname -m)
+[ "$ARCH" = "x86_64" ] && ARCH="amd64"
+[ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ] && ARCH="arm64"
 
-if [ "$ARCH" = "x86_64" ]; then ARCH="amd64"; fi
-if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then ARCH="arm64"; fi
+# Construir URL del asset
+# Ejemplo: https://github.com/pureslime/vito/releases/latest/download/vito-linux-amd64
+URL="https://github.com/$REPO/releases/latest/download/vito"
 
-VITO_HOME="$HOME/.vito"
-BIN_DIR="/usr/local/bin"
+# Crear carpetas
+mkdir -p "$BIN_DIR" "$VITO_HOME/pills" "$VITO_HOME/config"
 
-mkdir -p "$VITO_HOME/pills"
-mkdir -p "$VITO_HOME/config"
+# Descargar
+echo "📥 Downloading $URL..."
+if ! curl -sSL "$URL" -o "$BIN_DIR/vito"; then
+    echo "❌ Error: Could not download binary. Check if the release asset exists."
+    exit 1
+fi
 
-# curl -L "https://github.com/tu_usuario/vito/releases/latest/download/vito_${OS}_${ARCH}" -o vito
+chmod +x "$BIN_DIR/vito"
 
-echo "✨ Directories created at $VITO_HOME"
-
-# chmod +x vito
-# sudo mv vito $BIN_DIR/vito
-echo "${GREEN}${BOLD}🚀 VITO installed successfully!${NC}"
-echo "Try running: ${BOLD}vito --help${NC}"
+echo "✅ Installed at $BIN_DIR/vito"
+echo "👉 Run 'export PATH=\"\$HOME/.vito/bin:\$PATH\"' to use it."

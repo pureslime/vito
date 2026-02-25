@@ -6,6 +6,7 @@ import (
 
 	"github.com/pureslime/vito/cmd/config"
 	"github.com/pureslime/vito/cmd/pill"
+	internalConfig "github.com/pureslime/vito/internal/config"
 	"github.com/pureslime/vito/internal/engine"
 	"github.com/pureslime/vito/internal/utils"
 	"github.com/spf13/cobra"
@@ -32,6 +33,16 @@ func init() {
 
 	cobra.AddTemplateFunc("vitoTitle", func(s string) string {
 		return ui.MakeTitle(s)
+	})
+
+	cobra.OnInitialize(func() {
+		if err := internalConfig.EnsureDirs(); err != nil {
+			fmt.Printf("Error creating directories: %v\n", err)
+		}
+
+		if err := internalConfig.LoadConfig(); err != nil {
+			fmt.Printf("Error loading config: %v\n", err)
+		}
 	})
 
 	// Set internal "pills"

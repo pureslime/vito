@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/pureslime/vito/internal/config"
+	internalConfig "github.com/pureslime/vito/internal/config"
 	"github.com/pureslime/vito/internal/utils"
 	"github.com/spf13/cobra"
 )
@@ -21,7 +21,7 @@ var addPill = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		source := args[0]
 
-		if err := config.EnsureDirs(); err != nil {
+		if err := internalConfig.EnsureDirs(); err != nil {
 			utils.HandleError(err, "pill add")
 			return
 		}
@@ -47,7 +47,7 @@ func addLocalPill(path string) {
 		fileName = "vito-" + fileName
 	}
 
-	dest := filepath.Join(config.GetPillsDir(), fileName)
+	dest := filepath.Join(internalConfig.GetPillsDir(), fileName)
 
 	if err := utils.CopyFile(path, dest); err != nil {
 		utils.HandleError(err, "pill add")
@@ -74,7 +74,7 @@ func addRemotePill(url string) {
 		fileName = "vito-" + fileName
 	}
 
-	dest := filepath.Join(config.GetPillsDir(), fileName)
+	dest := filepath.Join(internalConfig.GetPillsDir(), fileName)
 
 	out, err := os.Create(dest)
 	if err != nil {

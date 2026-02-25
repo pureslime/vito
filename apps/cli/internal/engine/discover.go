@@ -5,17 +5,17 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/pureslime/vito/internal/config"
+	internalConfig "github.com/pureslime/vito/internal/config"
 	"github.com/pureslime/vito/internal/shared/structs"
 	"github.com/pureslime/vito/internal/utils"
 )
 
 func DiscoverPills(path string) ([]structs.PillInfo, error) {
-	if err := config.EnsureDirs(); err != nil {
+	if err := internalConfig.EnsureDirs(); err != nil {
 		return nil, err
 	}
 
-	pillsPath := config.GetPillsDir()
+	pillsPath := internalConfig.GetPillsDir()
 
 	files, err := os.ReadDir(pillsPath)
 	if err != nil {

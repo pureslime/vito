@@ -1,4 +1,4 @@
-package config
+package internalConfig
 
 import (
 	"fmt"
@@ -55,7 +55,13 @@ func LoadConfig() error {
 	if _, err := os.Stat(configFilePath); os.IsNotExist(err) {
 		currentConfig.Remote.UpgradeURL = DefaultUpgradeURL
 		currentConfig.Remote.PillsURL = DefaultPillsURL
-		return nil
+
+		data, err := yaml.Marshal(&currentConfig)
+		if err != nil {
+			return err
+		}
+
+		return os.WriteFile(configFilePath, data, 0644)
 	}
 
 	data, err := os.ReadFile(configFilePath)

@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/pureslime/vito/internal/config"
+	internalConfig "github.com/pureslime/vito/internal/config"
 	"github.com/pureslime/vito/internal/utils"
 	"github.com/spf13/cobra"
 )
@@ -19,7 +19,7 @@ var upgradeCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		ui.PrintInfo("Checking for updates...")
 
-		baseURL := config.GetUpgradeURL()
+		baseURL := internalConfig.GetUpgradeURL()
 
 		targetOS := runtime.GOOS
 		targetArch := runtime.GOARCH
@@ -29,7 +29,7 @@ var upgradeCmd = &cobra.Command{
 
 		finalURL := fmt.Sprintf("%s/vito-%s-%s", baseURL, targetOS, targetArch)
 
-		installDir := config.GetBinDir()
+		installDir := internalConfig.GetBinDir()
 		installPath := filepath.Join(installDir, "vito")
 		tmpBinary := installPath + ".tmp"
 		ui.PrintInfo(fmt.Sprintf("Downloading from: %s", finalURL))

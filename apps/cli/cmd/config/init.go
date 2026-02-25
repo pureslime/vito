@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/pureslime/vito/internal/config"
+	internalConfig "github.com/pureslime/vito/internal/config"
 	"github.com/pureslime/vito/internal/utils"
 	"github.com/spf13/cobra"
 )
@@ -15,7 +15,7 @@ var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "Initialize default configuration file",
 	Run: func(cmd *cobra.Command, args []string) {
-		configPath := filepath.Join(config.GetConfigDir(), "config.yaml")
+		configPath := filepath.Join(internalConfig.GetConfigDir(), "config.yaml")
 
 		if _, err := os.Stat(configPath); err == nil {
 			ui.PrintInfo("Config file already exists.")

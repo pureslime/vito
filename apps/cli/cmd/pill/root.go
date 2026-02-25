@@ -5,11 +5,13 @@ import (
 )
 
 var PillCmd = &cobra.Command{
-	Use:   "pill",
-	Short: "Manage VITO pills (plugins)",
-	Long:  `Install, create, and manage the lifecyle of VITO pills.`,
+	Use:     "pill",
+	Short:   "Manage VITO pills (plugins)",
+	Long:    `Install, create, and manage the lifecyle of VITO pills.`,
+	GroupID: "core",
 }
 
 func init() {
-	PillCmd.AddCommand(NewPill)
+	PillCmd.AddCommand(newPill)
+	PillCmd.AddCommand(addPill)
 }

@@ -7,7 +7,7 @@ import (
 )
 
 func PrintErr(err error, context string) {
-	header := fmt.Sprintf("%s Error in %s", tokens.ErrorPrefixStyle.Render("VITO"), tokens.ErrorContextStyle.Render(context))
+	header := fmt.Sprintf("%s Error in %s", tokens.ErrorPrefixStyle.Render("ERROR"), tokens.ErrorContextStyle.Render(context))
 	body := tokens.ErrorBodyStyle.Render(fmt.Sprintf("↳ %s", err.Error()))
 
 	fmt.Fprintf(os.Stderr, "\n%s\n%s\n\n", header, body)

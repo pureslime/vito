@@ -10,7 +10,7 @@ import (
 
 var lang string
 
-var NewPill = &cobra.Command{
+var newPill = &cobra.Command{
 	Use:   "new [name]",
 	Short: "Generate a new Pill for VITO",
 	Args:  cobra.ExactArgs(1),
@@ -26,5 +26,5 @@ var NewPill = &cobra.Command{
 }
 
 func init() {
-	NewPill.Flags().StringVarP(&lang, "lang", "l", "go", "Language of the plugin to be made (go).")
+	newPill.Flags().StringVarP(&lang, "lang", "l", "go", "Language of the plugin to be made (go).")
 }

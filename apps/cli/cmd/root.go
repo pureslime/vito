@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"libs/ui"
 
+	"github.com/pureslime/vito/cmd/config"
 	"github.com/pureslime/vito/cmd/pill"
 	"github.com/pureslime/vito/internal/engine"
 	"github.com/pureslime/vito/internal/utils"
@@ -21,6 +22,9 @@ var rootCmd = &cobra.Command{
 
 func init() {
 
+	rootCmd.AddGroup(&cobra.Group{ID: "core", Title: "CORE COMMANDS"})
+	rootCmd.AddGroup(&cobra.Group{ID: "pills", Title: "INSTALLED PILLS"})
+
 	cobra.AddTemplateFunc("vitoBadge", func(s string, padding int) string {
 		formatted := fmt.Sprintf("%-*s", padding, s)
 		return ui.Badge(s) + formatted[len(s):]
@@ -33,6 +37,8 @@ func init() {
 	// Set internal "pills"
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(pill.PillCmd)
+	rootCmd.AddCommand(config.ConfigCmd)
+	rootCmd.AddCommand(upgradeCmd)
 
 	// Set help template
 	rootCmd.SetHelpTemplate(engine.GetHelpTemplate())

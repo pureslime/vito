@@ -6,10 +6,10 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx-go/nx-go:build",
+      "executor": "nx:run-commands",
       "options": {
-        "main": "{projectRoot}/main.go",
-        "outputPath": "dist/apps/vito"
+        "command": "go build -ldflags=\"-X 'github.com/pureslime/vito/cmd.LibVersion=0.1.0-alpha.1'\" -o ../../dist/vito main.go",
+        "cwd": "apps/cli"
       }
     },
     "serve": {

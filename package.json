@@ -1,0 +1,18 @@
+{
+  "name": "@vito/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "cli:build": "nx build apps/cli",
+    "cli:test": "nx test apps/cli",
+    "cli:lint": "nx lint apps/cli"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nx-go/nx-go": "^3.3.1",
+    "@nx/js": "22.5.2",
+    "@nx/workspace": "22.5.2",
+    "nx": "22.5.2"
+  }
+}

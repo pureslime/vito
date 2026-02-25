@@ -1,0 +1,43 @@
+CC BY-NC-SA 4.0 + DISCLAIMERS
+
+VITO is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license with additional liability disclaimers.
+
+By using VITO, you signify your agreement to these terms and conditions. If you do not agree, do not use the software.
+
+Terms of the license:
+- Attribution (BY): You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor (glitchedslimy) endorses you or your use.
+- Non-Commercial (NC): You may not use the material for commercial purposes. Only the original author (glitchedslimy) holds commercial rights over VITO.
+- Share-Alike (SA): If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+- No additional restrictions: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+DISCLAIMER OF LIABILITY (IMPORTANT)
+1. Third-Party Plugins (Pills): VITO allows the installation of third-party plugins and templates. The author (glitchedslimy) is NOT responsible for any damage, data loss, or security breaches caused by "Pills", templates, or code created by third parties. Use them at your own risk.
+2. Unauthorized Distribution: This software is officially distributed via github.com/glitchedslimy/vito. The author is NOT responsible for any modified or corrupted versions of the CLI downloaded from unauthorized sources.
+3. No Guarantee of Performance: The author does not guarantee that the software will be error-free, bug-free, or that it will meet your specific requirements. It is provided for use "with all faults".
+4. Data & Privacy: VITO interacts with third-party services (like GitHub). The author is not responsible for any data processed, stored, or leaked by these external platforms or by third-party plugins.
+5. Jurisdiction: Any legal dispute related to VITO shall be governed by the laws of Spain and resolved in its competent courts.
+6. Compatibility & Breaking Changes: The author reserves the right to modify the Core API or the "Pills" engine at any time. The author is not responsible for updating third-party plugins or ensuring they remain compatible with newer versions of VITO.
+7. Termination: If you fail to comply with any of the terms of this license (especially the "No AI Slop" policy in contributions or the Non-Commercial clause), your rights under this license will terminate automatically. In such a case, you must stop all use and distribution of VITO immediately.
+8. No Endorsement & Trademark: The names "VITO" and "glitchedslimy" are protected. You may not use these names, or any confusingly similar variations, to endorse, promote, or brand products, plugins, or services without prior written permission.
+9. No Relationship: Nothing in this license shall be construed as creating a joint venture, partnership, employment, or agency relationship between the author and any user or contributor.
+10. Severability: If any provision of this disclaimer is found to be unenforceable or invalid under any applicable law, such unenforceability or invalidity shall not render these terms invalid as a whole.
+11. Updates to Terms: The author reserves the right to update these disclaimers and licensing terms at any time. Continued use of VITO after such changes constitutes acceptance of the new terms.
+12. No Sublicensing: You may not grant sublicenses, sell, or rent the rights to this software. The rights granted under this license are personal and non-transferable.
+13. Entire agreement: This license, along with the official CONTRIBUTIONS.md and README.md documents, constitutes the entire agreement between you and the author regarding VITO. No verbal agreements, chat messages, or informal communications shall override these written terms.
+
+FINAL SAFETY INJECTION (LIMITATION OF LIABILITY)
+1. Third-Party Content: VITO is a host. The author (glitchedslimy) does not audit, endorse, or guarantee the safety of third-party "Pills" or templates. Installing external code is equivalent to running a script from the internet; you do it at your own risk.
+2. Automated Actions: VITO performs file system operations. The user is responsible for maintaining backups. The author is not liable for accidental data overwrites or deletions performed by the CLI during project generation or pill execution.
+3. No Business Continuity: The author is not liable for any financial loss, loss of data, or "downtime" caused by the use or inability to use this CLI tool.
+4. Intentional Misuse: If you use VITO to create, distribute, or manage malicious software, you do so under your own legal responsibility. The author condemns and is not associated with any illegal use of this tool.
+5. Ownership of Intellectual Property: All rights, titles, and interests in and to the VITO Core, including but not limited to graphics, code, and documentation, remain the exclusive property of glitchedslimy. No ownership is transferred to you by using or contributing to this project.
+6. "As-Is" Basis: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+THIRD-PARTY SOFTWARE NOTICES
+VITO incorporates and/or relies on the following third-party libraries to power its CLI experience:
+
+1. Cobra (github.com/spf13/cobra): Licensed under the Apache License 2.0.
+2. Lip Gloss (github.com/charmbracelet/lipgloss): Licensed under the MIT License.
+3. Bubble Tea (github.com/charmbracelet/bubbletea): Licensed under the MIT License.
+
+These components are provided "AS IS". Their respective licenses apply exclusively to the libraries themselves. The original architecture, "Pills" engine, and logic of VITO remain under the CC BY-NC-SA 4.0 + Custom Disclaimers stated above.

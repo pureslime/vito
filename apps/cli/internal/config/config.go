@@ -37,9 +37,10 @@ func GetVitoHome() string {
 
 func GetPillsDir() string  { return filepath.Join(GetVitoHome(), "pills") }
 func GetConfigDir() string { return filepath.Join(GetVitoHome(), "config") }
+func GetBinDir() string    { return filepath.Join(GetVitoHome(), "bin") }
 
 func EnsureDirs() error {
-	dirs := []string{GetPillsDir(), GetConfigDir()}
+	dirs := []string{GetPillsDir(), GetConfigDir(), GetBinDir()}
 	for _, d := range dirs {
 		if err := os.MkdirAll(d, 0755); err != nil {
 			return err

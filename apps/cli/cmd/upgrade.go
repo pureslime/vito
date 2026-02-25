@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"libs/ui"
 	"os"
+	"path/filepath"
 	"runtime"
 
 	"github.com/pureslime/vito/internal/config"
@@ -28,10 +29,10 @@ var upgradeCmd = &cobra.Command{
 
 		finalURL := fmt.Sprintf("%s/vito-%s-%s", baseURL, targetOS, targetArch)
 
+		installDir := config.GetBinDir()
+		installPath := filepath.Join(installDir, "vito")
+		tmpBinary := installPath + ".tmp"
 		ui.PrintInfo(fmt.Sprintf("Downloading from: %s", finalURL))
-
-		currentBinary, _ := os.Executable()
-		tmpBinary := currentBinary + ".tmp"
 
 		if err := utils.DownloadFile(tmpBinary, finalURL); err != nil {
 			utils.HandleError(err, "upgrade")
@@ -39,11 +40,13 @@ var upgradeCmd = &cobra.Command{
 		}
 
 		os.Chmod(tmpBinary, 0755)
-		if err := os.Rename(tmpBinary, currentBinary); err != nil {
+		if err := os.Rename(tmpBinary, installPath); err != nil {
 			utils.HandleError(fmt.Errorf("Could not replace binary: %v", err), "upgrade")
 			return
 		}
 		ui.PrintSuccess("VITO has been updgraded to the latest version!")
+
+		utils.CheckPath(installDir)
 	},
 }
 

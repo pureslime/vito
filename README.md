@@ -61,7 +61,7 @@ _VITO_ maintains all organized in one place:
 - `~/.vito/pills`: You toolings (binaries or `.wasm`)
 
 ## ✨ Contributions
-Refer to [CONTRIBUTIONS.md]("./CONTRIBUTIONS.md") to know more on how to contribute to _VITO_.
+Refer to [CONTRIBUTIONS.md](./CONTRIBUTIONS.md) to know more on how to contribute to _VITO_.
 
 ## 🗒️ License
 Distributed under CC BY-NC-SA 4.0 + DISCLAIMERS. Look at [LICENSE](./LICENSE) for more information.

@@ -4,14 +4,10 @@ I like that you want to help out VITO to get widely known and powerful! It doesn
 _VITO_ was born to stop the "copy-paste" cycle of boilerplates. We want tools that feel fast, look good, and are easy to extend.
 
 ## 📦 Tech Stack
-> THE BOX THE BOX! — Homer J. Simpson.
-
 So... what's in the box?
 - **CLI Engine:** [Cobra](https://github.com/spf13/cobra)
 - **TUI Framework:** [Bubble Tea](https://github.com/charmbracelet/bubbletea)
 - **Styling**: [Lip Gloss](https://github.com/charmbracelet/lipgloss)
-
-If you are adding UI components, please stick to Charm's ecosystem to keep VITO lightweight and visually consistent.
 
 ## 📜 Conventions
 These are established rules that I and everyone else should follow. Use a convention for your commits and specify what you're doing:
@@ -30,11 +26,22 @@ These are established rules that I and everyone else should follow. Use a conven
 ## 🛠️ First Steps
 - **Local development** To test your changes locally, you can run:
 ```bash
-go run main.go create my-test-project
+bun nx serve cli --args="<command to be executed>"
+# Example
+bun nx serve cli --args="net ping"
 ```
-And that works for every command you create. For example: `go run main.go audit.`
 
-Don't be shy! You're welcome to push your PRs, even if they get denied, just try your best!
+- **Pill development** Want to do a Pill? Use _VITO_!
+```bash
+vito pill new <pill-name> --lang Go
+```
+That will generate a fully working template of a Pill for _VITO_.
+
+For testing them out just use:
+```bash
+vito pill add <path-to-your-pill>
+```
+That will add the pill automatically to test.
 
 ## 🛠️ Workflow
 1. Fork the project
@@ -46,7 +53,6 @@ Don't be shy! You're welcome to push your PRs, even if they get denied, just try
 ## 💡 Wishlist / Ideas
 - A Pill for auto-generating Dockerfiles.
 - Template for Rust/Wasm vitamins.
-- A Command to analyze a project health (`vito audit`)
 
 ## 📜 Code of Conduct
 _VITO_ is an open and healthy community. I expect every collaborator to be constructive and respectful. **Everyone** is free to collaborate, share their opinion, and contribute, regardless of their background or the minority group they belong to. You are welcome here.

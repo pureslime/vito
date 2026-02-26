@@ -13,7 +13,7 @@ func RegisterPill(rootCmd *cobra.Command, pill structs.PillInfo) error {
 	if err != nil {
 		simpleCmd := &cobra.Command{
 			Use:                pill.Name,
-			Short:              "Pill: " + pill.Name,
+			Short:              "Pill: " + pill.Name + " (Generic)",
 			GroupID:            "pills",
 			DisableFlagParsing: true,
 			RunE: func(cmd *cobra.Command, args []string) error {
@@ -30,10 +30,12 @@ func RegisterPill(rootCmd *cobra.Command, pill structs.PillInfo) error {
 		GroupID: "pills",
 	}
 
-	for _, subName := range manifest.Commands {
-		name := subName
+	for _, cmdInfo := range manifest.Commands {
+		name := cmdInfo.Name
+		description := cmdInfo.Description
 		subCmd := &cobra.Command{
 			Use:                name,
+			Short:              description,
 			DisableFlagParsing: true,
 			RunE: func(cmd *cobra.Command, args []string) error {
 				return smartExecute(pill.Path, append([]string{name}, args...))

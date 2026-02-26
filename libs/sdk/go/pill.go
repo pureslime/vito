@@ -5,36 +5,36 @@ import (
 	"fmt"
 	"libs/ui"
 	"os"
+
+	"github.com/pureslime/vito-sdk/shared/structs"
 )
 
-type PillManifest struct {
-	Name     string   `json:"name"`
-	Commands []string `json:"commands"`
-}
-
-type Pill struct {
-	Name     string
-	handlers map[string]func(args []string) error
-}
+type Pill structs.Pill
 
 func NewPill(name string) *Pill {
-	return &Pill{
+	return (*Pill)(&structs.Pill{
 		Name:     name,
-		handlers: make(map[string]func(args []string) error),
-	}
+		Handlers: make(map[string]structs.PillHandler),
+	})
 }
 
-func (p *Pill) Handle(cmdName string, handler func(args []string) error) {
-	p.handlers[cmdName] = handler
+func (p *Pill) Handle(cmdName string, desc string, handler func(args []string) error) {
+	p.Handlers[cmdName] = structs.PillHandler{
+		Description: desc,
+		Action:      handler,
+	}
 }
 
 func (p *Pill) Run() {
 	if len(os.Args) > 1 && os.Args[1] == "--vito-info" {
-		cmds := make([]string, 0, len(p.handlers))
-		for name := range p.handlers {
-			cmds = append(cmds, name)
+		cmds := make([]structs.CommandInfo, 0, len(p.Handlers))
+		for name, h := range p.Handlers {
+			cmds = append(cmds, structs.CommandInfo{
+				Name:        name,
+				Description: h.Description,
+			})
 		}
-		json.NewEncoder(os.Stdout).Encode(PillManifest{
+		json.NewEncoder(os.Stdout).Encode(structs.PillManifest{
 			Name:     p.Name,
 			Commands: cmds,
 		})
@@ -43,17 +43,16 @@ func (p *Pill) Run() {
 
 	if len(os.Args) > 1 {
 		subCmd := os.Args[1]
-		if handler, ok := p.handlers[subCmd]; ok {
-			if err := handler(os.Args[2:]); err != nil {
-				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		if h, ok := p.Handlers[subCmd]; ok {
+			if err := h.Action(os.Args[2:]); err != nil {
+				p.ExitWithError(p.Name, err)
 				os.Exit(1)
 			}
 			return
 		}
 	}
 
-	fmt.Printf("Pill %s: Command not found\n", p.Name)
-	os.Exit(1)
+	p.ExitWithError(p.Name, fmt.Errorf("command '%s' not found", os.Args[1]))
 }
 
 func (p *Pill) ExitWithError(context string, err error) {

@@ -5,7 +5,6 @@ import (
 	"libs/ui"
 	"os"
 	"path/filepath"
-	"runtime"
 
 	internalConfig "github.com/pureslime/vito/internal/config"
 	"github.com/pureslime/vito/internal/utils"
@@ -21,13 +20,7 @@ var upgradeCmd = &cobra.Command{
 
 		baseURL := internalConfig.GetUpgradeURL()
 
-		targetOS := runtime.GOOS
-		targetArch := runtime.GOARCH
-		if targetArch == "x86_64" {
-			targetArch = "amd64"
-		}
-
-		finalURL := fmt.Sprintf("%s/vito-%s-%s", baseURL, targetOS, targetArch)
+		finalURL := fmt.Sprintf("%s/vito", baseURL)
 
 		installDir := internalConfig.GetBinDir()
 		installPath := filepath.Join(installDir, "vito")

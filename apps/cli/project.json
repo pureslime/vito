@@ -8,7 +8,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "go build -ldflags=\"-X 'github.com/pureslime/vito/cmd.LibVersion=0.1.0-alpha.1'\" -o ../../dist/vito main.go",
+        "command": "go build -ldflags=\"-X 'github.com/pureslime/vito/cmd.LibVersion=${VITO_VERSION}'\" -o ../../dist/vito main.go",
         "cwd": "apps/cli"
       }
     },

@@ -1,0 +1,37 @@
+{
+  "name": "docs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/docs/src",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "astro dev",
+        "cwd": "apps/docs"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "command": "astro build",
+        "cwd": "apps/docs"
+      }
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "astro preview",
+        "cwd": "apps/docs"
+      }
+    },
+    "astro": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun astro",
+        "cwd": "apps/docs"
+      }
+    }
+  }
+}

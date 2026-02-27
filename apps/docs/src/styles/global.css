@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vito-black: #0a0a0a;
+  --color-vito-base: #080808;
+  --color-vito-accent: #ff5f1f;
+  --color-vito-info: #00d1ff;
+  --color-vito-success: #00ff41;
+  --color-muted: #a1a1aa;
+  --color-text: #ffffff;
+
+  --font-sans: "Geist Sans", "Inter Tight", ui-sans-serif, system-ui;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-vito: 0px;
+  --radius-pill: 9999px;
+
+  --shadow-vito-glow: 0 0 20px -5px rgba(255, 95, 31, 0.3);
+}
+
+@utility border-vito {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-clip: padding-box;
+}
+
+@utility bg-vito-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}

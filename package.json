@@ -5,10 +5,16 @@
   "scripts": {
     "cli:build": "nx build apps/cli",
     "cli:test": "nx test apps/cli",
-    "cli:lint": "nx lint apps/cli"
+    "cli:lint": "nx lint apps/cli",
+    "docs:serve": "nx serve docs"
   },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^5.17.1",
+    "gsap": "^3.14.2",
+    "tailwindcss": "^4.2.1"
+  },
   "devDependencies": {
     "@nx-go/nx-go": "^3.3.1",
     "@nx/js": "22.5.2",

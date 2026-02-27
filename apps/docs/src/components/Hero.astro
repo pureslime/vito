@@ -1,0 +1,209 @@
+---
+// Hero.astro - Ultra Brutalist Edition
+---
+
+<section
+  class="relative min-h-[110vh] bg-[#050505] flex flex-col items-center justify-center overflow-hidden p-4 font-mono"
+>
+  <div
+    class="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden"
+  >
+    <h1
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-black leading-none text-transparent stroke-vito-accent/10 opacity-20 uppercase tracking-tighter"
+      style="-webkit-text-stroke: 2px var(--color-vito-accent);"
+    >
+      VITO
+    </h1>
+
+    <div class="absolute inset-0 bg-vito-noise opacity-[0.03]"></div>
+    <div
+      class="absolute top-0 left-0 w-full h-[50vh] bg-gradient-to-b from-vito-accent/10 to-transparent animate-scan-slow opacity-30"
+    >
+    </div>
+  </div>
+
+  <div
+    class="container relative z-10 max-w-[1400px] grid grid-cols-1 lg:grid-cols-12 gap-0 border border-white/10 bg-black/40 backdrop-blur-md"
+  >
+    <div
+      class="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-white/10 p-8 md:p-16 space-y-12"
+    >
+      <div class="hero-reveal flex items-center gap-4 text-vito-accent">
+        <span
+          class="text-xs tracking-[0.3em] font-black uppercase underline decoration-2 underline-offset-8"
+          >Status: Stable</span
+        >
+        <span class="text-xs opacity-40">// 04.2026</span>
+      </div>
+
+      <div class="space-y-4">
+        <h2
+          class="hero-reveal text-6xl md:text-8xl font-black text-white leading-[0.85] tracking-tighter uppercase"
+        >
+          Engineered for <br />
+          <span class="text-vito-accent italic">Performance.</span>
+        </h2>
+        <p
+          class="hero-reveal text-xl md:text-2xl text-white/50 max-w-2xl font-light tracking-tight"
+        >
+          VITO is not just a CLI. It's a <span class="text-white"
+            >unified orchestration layer</span
+          > for Go and Wasm modules. Fast. Scalable. Undeniable.
+        </p>
+      </div>
+
+      <div
+        class="hero-reveal group relative border-2 border-vito-accent/20 bg-vito-accent/[0.02] p-6 max-w-xl transition-all hover:border-vito-accent/50"
+      >
+        <div
+          class="absolute -top-3 left-4 bg-[#050505] px-2 text-[10px] text-vito-accent font-black tracking-widest uppercase"
+        >
+          Quick Start
+        </div>
+        <div class="flex items-center gap-4 text-sm md:text-base">
+          <span class="text-vito-accent font-bold animate-pulse">#</span>
+          <code class="text-white font-mono tracking-tight"
+            >curl -sSL vito.sh/install | bash</code
+          >
+          <button
+            class="ml-auto text-vito-accent hover:text-white transition-colors"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+              ></path></svg
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-4 flex flex-col justify-between">
+      <a
+        href="/docs"
+        class="group flex-1 flex flex-col items-center justify-center p-12 bg-vito-accent hover:bg-white transition-colors duration-500 relative overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 opacity-0 group-hover:opacity-10 scale-150 transition-opacity"
+        >
+          <h1 class="font-black text-black rotate-12 text-6xl">
+            DOCS DOCS DOCS
+          </h1>
+        </div>
+        <span
+          class="relative z-10 text-black font-black text-4xl italic uppercase tracking-tighter group-hover:scale-110 transition-transform"
+        >
+          Read the Docs →
+        </span>
+      </a>
+
+      <div class="p-8 border-t border-white/10 space-y-6 bg-white/[0.02]">
+        <div
+          class="flex justify-between items-end border-b border-white/5 pb-4"
+        >
+          <span
+            class="text-[10px] text-white/30 uppercase tracking-widest italic"
+            >Core Engine</span
+          >
+          <span class="text-vito-accent font-black">V1.0.4-BETA</span>
+        </div>
+        <div
+          class="flex justify-between items-end border-b border-white/5 pb-4"
+        >
+          <span
+            class="text-[10px] text-white/30 uppercase tracking-widest italic"
+            >Runtime</span
+          >
+          <span class="text-white font-black">WASM / GO</span>
+        </div>
+        <div class="flex justify-between items-end">
+          <span
+            class="text-[10px] text-white/30 uppercase tracking-widest italic"
+            >Footprint</span
+          >
+          <span class="text-white font-black">&lt; 12MB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="fixed top-4 left-4 text-[10px] text-vito-accent opacity-20 vertical-text"
+  >
+    SEC_ID: 8829-AX
+  </div>
+  <div class="fixed bottom-4 right-4 text-[10px] text-vito-accent opacity-20">
+    © VITO_CLI_CORP
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+
+  // Animación de entrada por bloques
+  const tl = gsap.timeline({ defaults: { ease: "power4.inOut" } });
+
+  tl.from(".container", {
+    scaleY: 0,
+    duration: 1.2,
+    transformOrigin: "center",
+  })
+    .from(
+      ".hero-reveal",
+      {
+        opacity: 0,
+        y: 30,
+        stagger: 0.1,
+        duration: 0.8,
+      },
+      "-=0.4",
+    )
+    .from(
+      ".lg\\:col-span-4",
+      {
+        x: 100,
+        opacity: 0,
+        duration: 1,
+      },
+      "-=1",
+    );
+</script>
+
+<style>
+  :root {
+    --color-vito-accent: #ff5f1f; /* Ajusta este color según tu marca */
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+  }
+
+  @keyframes scan-slow {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(200%);
+    }
+  }
+
+  .animate-scan-slow {
+    animation: scan-slow 8s linear infinite;
+  }
+
+  .bg-vito-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Efecto de texto hueco */
+  .stroke-vito-accent\/10 {
+    -webkit-text-stroke: 1px rgba(255, 95, 31, 0.1);
+  }
+</style>

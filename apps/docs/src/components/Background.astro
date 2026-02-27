@@ -1,0 +1,40 @@
+<div class="fixed inset-0 -z-50 bg-vito-black overflow-hidden">
+  <div
+    class="absolute inset-0 bg-vito-noise opacity-[0.03] mix-blend-overlay pointer-events-none"
+  >
+  </div>
+
+  <div
+    class="absolute inset-0 opacity-[0.15]"
+    style="background-image: radial-gradient(var(--color-vito-accent) 1px, transparent 1px); background-size: 40px 40px;"
+  >
+  </div>
+
+  <div
+    class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-vito-accent/10 blur-[120px] rounded-full"
+  >
+  </div>
+  <div
+    class="absolute top-[20%] -right-[5%] w-[30%] h-[50%] bg-vito-info/5 blur-[100px] rounded-full"
+  >
+  </div>
+
+  <div
+    class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-vito-accent/20 to-transparent animate-scan"
+  >
+  </div>
+</div>
+
+<style>
+  @keyframes scan {
+    0% {
+      transform: translateY(-100vh);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+  .animate-scan {
+    animation: scan 8s linear infinite;
+  }
+</style>
